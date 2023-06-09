@@ -153,7 +153,7 @@ export const skills: SkillGroup[] = [
         level: 7,
       },
       {
-        name: 'Resberry Pi',
+        name: 'Raspberry Pi',
         level: 7,
       },
     ],
