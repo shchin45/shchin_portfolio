@@ -196,7 +196,7 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: 'March 2010 - Present',
+    date: 'January 2021 - Present',
     location: 'V.S. PLUS SDN BHD',
     title: 'Junior Software Engineer',
     content: (
