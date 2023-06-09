@@ -8,7 +8,6 @@ import {
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import heroImage from '../images/header-background.webp';
 import profilepic from '../images/profilepic.jpg';
 import {
   About,
@@ -50,7 +49,6 @@ export type SectionId = typeof SectionId[keyof typeof SectionId];
  * Hero section
  */
 export const heroData: Hero = {
-  imageSrc: heroImage,
   name: `Chin Siang Hao`,
   description: (
     <>
