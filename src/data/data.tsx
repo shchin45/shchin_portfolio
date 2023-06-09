@@ -206,7 +206,7 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: 'October 2007 - December 2020',
+    date: 'October 2020 - December 2020',
     location: 'V.S. PLUS SDN BHD',
     title: 'Internship',
     content: (
