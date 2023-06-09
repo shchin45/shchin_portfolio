@@ -1,48 +1,46 @@
 import {ChevronDownIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import Image from 'next/image';
 import React, {FC, memo} from 'react';
 import Typed from 'typed.js';
 
 import {heroData, SectionId, strings} from '../../data/data';
+import particalesConfig from '../../data/paricles_config';
 import Section from '../Layout/Section';
-
+import ParticlesComponent from '../particlesBackground';
 
 const Hero: FC = memo(() => {
-  const {imageSrc, name,  actions} = heroData;
+  const {name, actions} = heroData;
   const el = React.useRef(null);
 
   React.useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: strings.map(item => `<span style='color: #ffc834; text-decoration: underline; text-decoration-color: #f97316;'>${item.value}</span>`),
-        typeSpeed: 65,
-        backSpeed: 65,
-        cursorChar: '<span style="color: #f97316;">|</span>',
-            loop: true, 
+      strings: strings.map(
+        item =>
+          `<span style='color: #ffc834; text-decoration: underline; text-decoration-color: #f97316;'>${item.value}</span>`,
+      ),
+      typeSpeed: 65,
+      backSpeed: 65,
+      cursorChar: '<span style="color: #f97316;">|</span>',
+      loop: true,
     });
-    
+
     return () => {
-        typed.destroy();
+      typed.destroy();
     };
-}, []);
+  }, []);
 
   return (
     <Section noPadding sectionId={SectionId.Hero}>
       <div className="relative flex h-screen w-full items-center justify-center">
-        <Image
-          alt={`${name}-image`}
-          className="absolute z-0 h-full w-full object-cover"
-          placeholder="blur"
-          priority
-          src={imageSrc}
-        />
+        <ParticlesComponent id="particles" options={particalesConfig} />
         <div className="z-10  max-w-screen-lg px-6 lg:px-0">
           <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-20 text-center shadow-lg backdrop-blur-sm">
             <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-5xl">{name}</h1>
-              <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-4xl"> I'm <span ref={el} /></h1>
-            <div className="flex gap-x-4 text-neutral-100">
-              {/* <Socials /> */}
-            </div>
+            <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-4xl">
+              {' '}
+              I'm <span ref={el} />
+            </h1>
+            <div className="flex gap-x-4 text-neutral-100">{/* <Socials /> */}</div>
             <div className="flex w-full justify-center gap-x-4">
               {actions.map(({href, text, primary, Icon}) => (
                 <a

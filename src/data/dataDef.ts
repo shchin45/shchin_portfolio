@@ -93,7 +93,6 @@ export interface TimelineItem {
   content: JSX.Element;
 }
 
-
 export interface Testimonial {
   image?: string;
   name: string;
@@ -115,7 +114,7 @@ export const ContactType = {
   LinkedIn: 'LinkedIn',
 } as const;
 
-export type ContactType = typeof ContactType[keyof typeof ContactType];
+export type ContactType = (typeof ContactType)[keyof typeof ContactType];
 
 export interface ContactItem {
   type: ContactType;
@@ -137,9 +136,7 @@ export interface Social {
   href: string;
 }
 
-
-export interface StringItem  {
+export interface StringItem {
   value: string;
-};
-
+}
 
