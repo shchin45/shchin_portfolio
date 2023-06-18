@@ -186,16 +186,6 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'Febuary 2023 - Present',
-    location: 'Altecl Technology',
-    title: 'Freelance Web Developer',
-    content: (
-      <p>
-      Deliver web layout design and API fetching tasks to clients.
-      </p>
-    ),
-  },
-  {
     date: 'January 2021 - Present',
     location: 'V.S. PLUS SDN BHD',
     title: 'Junior Software Engineer',
