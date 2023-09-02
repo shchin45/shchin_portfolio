@@ -11,6 +11,7 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import profilepic from '../images/profilepic.jpg';
 import {
   About,
+  ApiItem,
   ContactSection,
   ContactType,
   Hero,
@@ -249,4 +250,15 @@ export const strings: StringItem[] = [
   {value: "PCMR"},
   {value: "Gamer"},
 ];
+
+/**
+ * API items
+ */
+export const Api: ApiItem ={
+  value: 'https://api.github.com/users/shchin98/repos'
+}
+ 
+
+
+
 

@@ -1,109 +1,103 @@
-import {ArrowTopRightOnSquareIcon} from '@heroicons/react/24/outline';
-import classNames from 'classnames';
-import Image from 'next/image';
-import {FC, memo, MouseEvent, useCallback, useEffect, useRef, useState} from 'react';
+import moment from 'moment';
+import {FC, memo, useEffect, useRef, useState} from 'react';
 import Typed from 'typed.js';
 
-import {isMobile} from '../../config';
-import {portfolioItems, SectionId} from '../../data/data';
+import {Api, SectionId} from '../../data/data';
 import {PortfolioItem} from '../../data/dataDef';
-import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 import Section from '../Layout/Section';
 
 const Portfolio: FC = memo(() => {
-
+  const [repos, setRepos] = useState<PortfolioItem[]>([]);
   const el = useRef(null);
 
   useEffect(() => {
-     const typed = new Typed(el.current, {
-       strings: [".", "..", "..."],
-         typeSpeed: 80,
-         backSpeed: 80,
-         showCursor: false, 
-         loop: true,
-     });
-     
-     return () => {
-         typed.destroy();
-     };
- }, []);
+    const typed = new Typed(el.current, {
+      strings: ['.', '..', '...'],
+      typeSpeed: 80,
+      backSpeed: 80,
+      showCursor: false,
+      loop: true,
+    });
 
+    const fetchData = async () => {
+      try {
+        const response = await fetch(Api.value);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setRepos(data);
+      } catch (err: unknown) {
+        console.error(err);
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      typed.destroy();
+    };
+  }, []);
 
   return (
     <Section className="bg-neutral-800" sectionId={SectionId.Portfolio}>
-
-      <div className="flex flex-col  gap-y-6">
-        <h2 className="self-center text-2xl font-bold text-white">Check out some of my work</h2>
-        {portfolioItems.length === 0 ? (
-      <p className="self-center text-white gap-y-4">Work in Progress <span ref={el}></span></p>
-    ) : (
-      <div className="w-full columns-2 md:columns-3 lg:columns-4">
-        {portfolioItems.map((item, index) => {
-          const {title, image} = item;
-          return (
-            <div className="pb-6" key={`${title}-${index}`}>
-              <div
-                className={classNames(
-                  'relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl',
-                )}
-              >
-                <Image alt={title} className="h-full w-full" placeholder="blur" src={image} />
-                <ItemOverlay item={item} />
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    )}
+      <div className="flex flex-col gap-y-4">
+        <h2 className="mb-4 self-center text-2xl font-bold text-white">Explore My Portfolio</h2>
+        {repos.length === 0 ? (
+          <p className="gap-y-4 self-center text-white">
+            Work in Progress <span ref={el}></span>
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 justify-center gap-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
+            {repos.map((item, index) => {
+              const {name, created_at, svn_url, description} = item;
+              const formattedDate = moment(created_at).format('YYYY-MM-DD');
+              return (
+                <a
+                  className="relative block h-40 w-80 overflow-hidden rounded-lg bg-white shadow-lg hover:bg-gray-100"
+                  href={svn_url}
+                  key={index}>
+                  <div className="p-4">
+                    <h2 className="text-lg font-semibold">
+                      <span
+                        className="text-black"
+                        style={{
+                          borderBottom: '2px solid #fb923c',
+                          paddingBottom: '2px',
+                        }}>
+                        {name}
+                      </span>
+                    </h2>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 top-0 bg-white opacity-0 transition-opacity duration-300 hover:opacity-100">
+                    <div className="p-4">
+                      <p
+                        className="text-gray-800"
+                        style={{
+                          userSelect: 'none',
+                          overflow: 'hidden',
+                          display: '-webkit-box',
+                          WebkitBoxOrient: 'vertical',
+                          WebkitLineClamp: 3,
+                          maxWidth: '250px',
+                        }}>
+                        {description}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 bg-white p-4 opacity-90">
+                    <p className="text-gray-600">{formattedDate}</p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        )}
       </div>
     </Section>
   );
 });
 
 Portfolio.displayName = 'Portfolio';
+
 export default Portfolio;
-
-const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, description}}) => {
-  const [mobile, setMobile] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(false);
-  const linkRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    // Avoid hydration styling errors by setting mobile in useEffect
-    if (isMobile) {
-      setMobile(true);
-    }
-  }, []);
-  useDetectOutsideClick(linkRef, () => setShowOverlay(false));
-
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLElement>) => {
-      if (mobile && !showOverlay) {
-        event.preventDefault();
-        setShowOverlay(!showOverlay);
-      }
-    },
-    [mobile, showOverlay],
-  );
-
-  return (
-    <a
-      className={classNames(
-        'absolute inset-0 h-full w-full  bg-gray-900 transition-all duration-300',
-        {'opacity-0 hover:opacity-80': !mobile},
-        showOverlay ? 'opacity-80' : 'opacity-0',
-      )}
-      href={url}
-      onClick={handleItemClick}
-      ref={linkRef}
-      target="_blank">
-      <div className="relative h-full w-full p-4">
-        <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto overscroll-contain">
-          <h2 className="text-center font-bold text-white opacity-100">{title}</h2>
-          <p className="text-xs text-white opacity-100 sm:text-sm">{description}</p>
-        </div>
-        <ArrowTopRightOnSquareIcon className="absolute bottom-1 right-1 h-4 w-4 shrink-0 text-white sm:bottom-2 sm:right-2" />
-      </div>
-    </a>
-  );
-});
