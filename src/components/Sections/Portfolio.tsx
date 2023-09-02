@@ -50,7 +50,7 @@ const Portfolio: FC = memo(() => {
         ) : (
           <div className="grid grid-cols-1 justify-center gap-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 mx-auto">
           {repos.map((item, index) => {
-            const { name, created_at, svn_url, description } = item;
+            const {name, created_at, svn_url, description} = item;
             const formattedDate = moment(created_at).format('YYYY-MM-DD');
             return (
               <a
