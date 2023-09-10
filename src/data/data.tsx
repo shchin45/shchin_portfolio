@@ -58,20 +58,20 @@ export const heroData: Hero = {
       </p>
     </>
   ),
-  actions: [
-    {
-      href: 'https://drive.google.com/file/d/1s8JAUvI8sw1Q-SXMP8Isy51gsELCRwzE/view?usp=sharing',
-      text: 'Resume',
-      primary: true,
-      Icon: ArrowDownTrayIcon,
-    },
-    {
-      href: `#${SectionId.Contact}`,
-      text: 'Contact',
-      primary: false,
-    },
-  ],
-};
+    actions: [
+      {
+        href: 'https://drive.google.com/file/d/1feunLVHkEXE-dDe8JZExRYRNDcOYcOwY/view?usp=sharing',
+        text: 'Resume',
+        primary: true,
+        Icon: ArrowDownTrayIcon,
+      },
+      {
+        href: `#${SectionId.Contact}`,
+        text: 'Contact',
+        primary: false,
+      },
+    ],
+  };
 
 /**
  * About section
