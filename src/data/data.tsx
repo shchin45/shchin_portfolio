@@ -1,10 +1,4 @@
-import {
-  ArrowDownTrayIcon,
-  CalendarIcon,
-  EnvelopeIcon,
-  FlagIcon,
-  PhoneIcon,
-} from '@heroicons/react/24/outline';
+import {ArrowDownTrayIcon, CalendarIcon, EnvelopeIcon, FlagIcon, PhoneIcon} from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
@@ -27,7 +21,7 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Chin Siang Hao Resume',
+  title: 'Chin Siang Hao',
   description: "Chin Siang Hao's react resume",
 };
 
@@ -44,7 +38,15 @@ export const SectionId = {
   Stats: 'stats',
 } as const;
 
-export type SectionId = typeof SectionId[keyof typeof SectionId];
+export type SectionId = (typeof SectionId)[keyof typeof SectionId];
+
+const getYearExp = () => {
+  const startYear = 2021;
+  const currentYear = new Date().getFullYear();
+  const yearsOfExperience = currentYear - startYear;
+
+  return yearsOfExperience;
+};
 
 /**
  * Hero section
@@ -54,31 +56,33 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-      I am a software developer that has 2 years plus of experience in the developer industry. My profession is software and web application development. Experienced in networking and PC hardware installation as side hobbies. I’m open-minded for any new technologies and I would love to learn them in any possible circumstances.  
+        I am a software engineer that has ${getYearExp()} years of experience in the software industry. My profession is
+        software and web application development. Experienced in networking and PC hardware installation/repair as side
+        hobbies. I’m open-minded for any new technologies and I would love to learn them in any possible circumstances.
       </p>
     </>
   ),
-    actions: [
-      {
-        href: 'https://drive.google.com/file/d/18OzfehaSDFvHZKX5RSf-8p-oEDT8AtvW/view?usp=drivesdk',
-        text: 'Resume',
-        primary: true,
-        Icon: ArrowDownTrayIcon,
-      },
-      {
-        href: `#${SectionId.Contact}`,
-        text: 'Contact',
-        primary: false,
-      },
-    ],
-  };
+  actions: [
+    {
+      href: 'https://drive.google.com/file/d/10p3Kcr7ynHHgo7Fv2nAmw1dImbW2bAp4/view?usp=sharing',
+      text: 'Resume',
+      primary: true,
+      Icon: ArrowDownTrayIcon,
+    },
+    {
+      href: `#${SectionId.Contact}`,
+      text: 'Contact',
+      primary: false,
+    },
+  ],
+};
 
 /**
  * About section
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `I am a software developer that has 2 years plus of experience in the developer industry. My profession is software and web application development. Experienced in networking and PC hardware installation as side hobbies. I’m open-minded for any new technologies and I would love to learn them in any possible circumstances. `,
+  description: `I am a software engineer that has ${getYearExp()} years of experience in the software industry. My profession is software and web application development. Experienced in networking and PC hardware installation/repair as side hobbies. I’m open-minded for any new technologies and I would love to learn them in any possible circumstances.`,
   aboutItems: [
     {label: 'Birthday', text: '05 April 1998', Icon: CalendarIcon},
     {label: 'Country', text: 'Malaysia', Icon: FlagIcon},
@@ -138,7 +142,7 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Postman',
-        level: 7,
+        level: 8,
       },
     ],
   },
@@ -164,9 +168,12 @@ export const skills: SkillGroup[] = [
 /**
  * Portfolio section
  */
-export const portfolioItems: PortfolioItem[] = [
+export const portfolioItems: PortfolioItem[] = [];
 
-];
+const listStyle = {
+  listStyleType: 'disc',
+  marginLeft: '20px',
+};
 
 /**
  * Resume section -- TODO: Standardize resume contact format or offer MDX
@@ -176,24 +183,38 @@ export const education: TimelineItem[] = [
     date: 'May 2017 - December 2020',
     location: 'Univercity Tunkul Abdul Rahman (Kampar)',
     title: 'BA (Hons) Business Information Systems',
-    content:<ul>
-    <li>Distributed Database Systems</li>
-    <li>Mobile Developement</li>
-    <li>Web Developement</li>
-  </ul>,
+    content: (
+      <ul style={listStyle}>
+        <li>Distributed Database Systems</li>
+        <li>Mobile Developement</li>
+        <li>Web Developement</li>
+      </ul>
+    ),
   },
-
 ];
 
 export const experience: TimelineItem[] = [
   {
     date: 'January 2021 - Present',
     location: 'V.S. PLUS SDN BHD',
-    title: 'Junior Software Engineer',
+    title: 'Software Engineer',
     content: (
-      <p>
-      Develop and maintain in-house software in the R&D Dept. 
-      </p>
+      <>
+        <ul style={listStyle}>
+          <li>
+            Contribute to the development of software application solutions tailored for industry production line
+            optimization, driving improvements in efficiency.
+          </li>
+          <li>
+            Play a pivotal role in improving the structure of the in-house developer framework, to achieve reusability,
+            maintainability, and robustness.
+          </li>
+          <li>
+            Stack: JavaScript, Node.js, Python, Docker, Linux, PowerShell, Vagrant, Electron, MySQL, RESTful API, React
+            Native
+          </li>
+        </ul>
+      </>
     ),
   },
   {
@@ -201,14 +222,22 @@ export const experience: TimelineItem[] = [
     location: 'V.S. PLUS SDN BHD',
     title: 'Internship',
     content: (
-      <p>
-      Prepare documentation and assist Ad-Hoc tasks in the R&D Dept.
-      </p>
+      <>
+        <ul style={listStyle}>
+          <li>
+            Created comprehensive documentation for streamlined onboarding, facilitating swift adaptation to
+            hardware/software installations for new team members.
+          </li>
+          <li>
+            Developed and expanded the graphical user interface (GUI) used in the production line, contributing to its
+            functionality and scalability.
+          </li>
+          <li>Stack: JavaScript, Linux, MySQL</li>
+        </ul>
+      </>
     ),
   },
 ];
-
-
 
 /**
  * Contact section
@@ -245,20 +274,16 @@ export const socialLinks: Social[] = [
 ];
 
 export const strings: StringItem[] = [
-  {value: "Coder"},
-  {value: "Developer"},
-  {value: "PCMR"},
-  {value: "Gamer"},
+  {value: 'Coder'},
+  {value: 'Developer'},
+  {value: 'Dreamer'},
+  {value: 'PCMR'},
+  {value: 'Gamer'},
 ];
 
 /**
  * API items
  */
-export const Api: ApiItem ={
-  value: 'https://api.github.com/users/shchin98/repos'
-}
- 
-
-
-
-
+export const Api: ApiItem = {
+  value: 'https://api.github.com/users/shchin98/repos',
+};

@@ -10,7 +10,6 @@ export const useNavObserver = (selectors: string, handler: (section: SectionId |
     const headingsArray = Array.from(headings);
     const headerWrapper = document.getElementById(headerID);
 
-    // Create the IntersectionObserver API
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -56,5 +55,5 @@ export const useNavObserver = (selectors: string, handler: (section: SectionId |
       observer.disconnect();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Dependency here is the post content.
+  }, []);
 };

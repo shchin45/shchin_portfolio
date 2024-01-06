@@ -18,29 +18,23 @@ export const SkillGroup: FC<PropsWithChildren<{skillGroup: SkillGroupType}>> = m
 
 SkillGroup.displayName = 'SkillGroup';
 
-export const Skill: FC<{ skill: SkillType }> = memo(({skill}) => {
+export const Skill: FC<{skill: SkillType}> = memo(({skill}) => {
   const {name, level, max = 10} = skill;
   const [percentage, setPercentage] = useState(0);
 
   useEffect(() => {
     const animateProgressBar = () => {
-      // Delay the animation start by 500 milliseconds
       setTimeout(() => {
-        // Animate the progress bar
         setPercentage(Math.round((level / max) * 100));
       }, 700);
     };
 
-    // Trigger the animation when the component mounts
     animateProgressBar();
 
-    // Clean up the animation when the component unmounts
     return () => {
-      // Reset the progress bar to initial state
       setPercentage(0);
     };
   }, [level, max]);
-
 
   return (
     <div className="flex flex-col">
