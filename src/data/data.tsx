@@ -48,6 +48,11 @@ const getYearExp = () => {
   return yearsOfExperience;
 };
 
+const bio = `I am a software engineer with ${getYearExp()} years of experience in the software industry. My
+profession involves software and web application development. Experienced in
+networking and PC hardware installation and repair as side hobbies. I’m open-minded for
+any new technologies and eager to learn them in any circumstances.`;
+
 /**
  * Hero section
  */
@@ -55,16 +60,12 @@ export const heroData: Hero = {
   name: `Chin Siang Hao`,
   description: (
     <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I am a software engineer that has ${getYearExp()} years of experience in the software industry. My profession is
-        software and web application development. Experienced in networking and PC hardware installation/repair as side
-        hobbies. I’m open-minded for any new technologies and I would love to learn them in any possible circumstances.
-      </p>
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">${bio}</p>
     </>
   ),
   actions: [
     {
-      href: 'https://drive.google.com/file/d/10p3Kcr7ynHHgo7Fv2nAmw1dImbW2bAp4/view?usp=sharing',
+      href: 'https://drive.google.com/file/d/1L1-bDdbEIWlWTZ9I3s1ikkE23JomzNaj/view?usp=sharing',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -82,7 +83,7 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `I am a software engineer that has ${getYearExp()} years of experience in the software industry. My profession is software and web application development. Experienced in networking and PC hardware installation/repair as side hobbies. I’m open-minded for any new technologies and I would love to learn them in any possible circumstances.`,
+  description: bio,
   aboutItems: [
     {label: 'Birthday', text: '05 April 1998', Icon: CalendarIcon},
     {label: 'Country', text: 'Malaysia', Icon: FlagIcon},
