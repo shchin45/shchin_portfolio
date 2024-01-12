@@ -181,7 +181,7 @@ const listStyle = {
  */
 export const education: TimelineItem[] = [
   {
-    date: 'May 2017 - December 2020',
+    date: 'May 2017 - Dec 2020',
     location: 'Univercity Tunkul Abdul Rahman (Kampar)',
     title: 'BA (Hons) Business Information Systems',
     content: (
@@ -196,7 +196,7 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'January 2021 - Present',
+    date: 'Jan 2021 - Present',
     location: 'V.S. PLUS SDN BHD',
     title: 'Software Engineer',
     content: (
@@ -219,7 +219,7 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: 'October 2020 - December 2020',
+    date: 'Oct 2020 - Dec 2020',
     location: 'V.S. PLUS SDN BHD',
     title: 'Internship',
     content: (
