@@ -48,10 +48,9 @@ const getYearExp = () => {
   return yearsOfExperience;
 };
 
-const bio = `I am a software engineer with ${getYearExp()} years of experience in the software industry. My
-profession involves software and web application development. Experienced in
-networking and PC hardware installation and repair as side hobbies. I’m open-minded for
-any new technologies and eager to learn them in any circumstances.`;
+const bio = `I am a software engineer with ${getYearExp()} years of experience in the software industry. 
+My profession involves software and web application development. 
+I’m open-minded for any new technologies and eager to learn them in any circumstances.`;
 
 /**
  * Hero section
@@ -65,7 +64,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: 'https://drive.google.com/file/d/1L1-bDdbEIWlWTZ9I3s1ikkE23JomzNaj/view?usp=sharing',
+      href: 'https://drive.google.com/file/d/1LD1zhb_3U-XMhXgimVHdDz3MVkQLnwEa/view?usp=sharing',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -121,46 +120,29 @@ export const skills: SkillGroup[] = [
         level: 8,
       },
       {
-        name: 'Python',
+        name: 'Express.js',
         level: 8,
       },
       {
-        name: 'Database',
+        name: 'PostgreSQL',
         level: 7,
       },
     ],
   },
   {
-    name: 'Develop Tools',
+    name: 'Development Tools',
     skills: [
+      {
+        name: 'Git',
+        level: 8,
+      },
       {
         name: 'Docker',
+        level: 7,
+      },
+      {
+        name: 'VS Code',
         level: 8,
-      },
-      {
-        name: 'Vagrant',
-        level: 7,
-      },
-      {
-        name: 'Postman',
-        level: 8,
-      },
-    ],
-  },
-  {
-    name: 'Others',
-    skills: [
-      {
-        name: 'Linux',
-        level: 7,
-      },
-      {
-        name: 'Powershell',
-        level: 7,
-      },
-      {
-        name: 'Raspberry Pi',
-        level: 7,
       },
     ],
   },
@@ -181,7 +163,7 @@ const listStyle = {
  */
 export const education: TimelineItem[] = [
   {
-    date: 'May 2017 - December 2020',
+    date: 'May 2017 - Dec 2020',
     location: 'Univercity Tunkul Abdul Rahman (Kampar)',
     title: 'BA (Hons) Business Information Systems',
     content: (
@@ -196,7 +178,29 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'January 2021 - Present',
+    date: 'Apr 2024 - Present',
+    location: 'V.S. PLUS SDN BHD',
+    title: 'Software Engineer',
+    content: (
+      <>
+        <ul style={listStyle}>
+          <li>
+            Developed solutions using Node.js to address operational challenges. Adapted quickly to the company’s
+            production workflows, methodologies, and database structures to deliver effective tools.
+          </li>
+          <li>
+            Focused on enhancing development practices, such as adopting modern frameworks and tools, while continuously
+            advancing personal technical skills contribute to long-term team and company success.
+          </li>
+          <li>
+            Stack: JavaScript, Node.js, Express.js, TypeScript, React, PostgreSQL, Docker, Power Automate, WSL, Git
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    date: 'Jan 2021 - Mar 2024',
     location: 'V.S. PLUS SDN BHD',
     title: 'Software Engineer',
     content: (
@@ -219,7 +223,7 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: 'October 2020 - December 2020',
+    date: 'Oct 2020 - Dec 2020',
     location: 'V.S. PLUS SDN BHD',
     title: 'Internship',
     content: (
