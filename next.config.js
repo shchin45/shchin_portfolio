@@ -15,15 +15,15 @@ const nextConfig = {
     config.resolve = {
       ...config.resolve,
       fallback: {
-        "fs": false,
-        "path": false,
-        "os": false,
-        "net":false,
-        "dns": false,
-        "child_process": false,
-        "tls": false,
-      }
-    }
+        fs: false,
+        path: false,
+        os: false,
+        net: false,
+        dns: false,
+        child_process: false,
+        tls: false,
+      },
+    };
 
     return config;
   },
@@ -38,10 +38,11 @@ const nextConfig = {
   },
   strictMode: true,
   swcMinify: true,
-  trailingSlash: false,
+  trailingSlash: true,
   images: {
-    domains: ['images.unsplash.com', 'source.unsplash.com'],
+    unoptimized: true,
   },
+  assetPrefix: './',
 };
 
 module.exports = nextConfig;
