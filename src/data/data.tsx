@@ -179,7 +179,7 @@ export const education: TimelineItem[] = [
 export const experience: TimelineItem[] = [
   {
     date: 'Apr 2024 - Present',
-    location: 'V.S. PLUS SDN BHD',
+    location: 'Wiwynn Technology Service Malaysia',
     title: 'Software Engineer',
     content: (
       <>
@@ -193,7 +193,7 @@ export const experience: TimelineItem[] = [
             advancing personal technical skills contribute to long-term team and company success.
           </li>
           <li>
-            Stack: JavaScript, Node.js, Express.js, TypeScript, React, PostgreSQL, Docker, Power Automate, WSL, Git
+            Stack: JavaScript, Node.js, Express.js, TypeScript, React, PostgreSQL, Docker, Power Automate, AWS, Git, Azure Devops
           </li>
         </ul>
       </>
