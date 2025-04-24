@@ -48,9 +48,9 @@ const getYearExp = () => {
   return yearsOfExperience;
 };
 
-const bio = `I am a software engineer with ${getYearExp()} years of experience in the software industry. 
-My profession involves software and web application development. 
-I’m open-minded for any new technologies and eager to learn them in any circumstances.`;
+const bio = `I'm a software engineer with ${getYearExp()} years of experience in developing software and web applications. 
+I’m passionate about building reliable, user-focused solutions and always eager to learn new technologies. 
+I adapt quickly and thrive in dynamic environments where continuous growth is encouraged.`;
 
 /**
  * Hero section
@@ -185,15 +185,16 @@ export const experience: TimelineItem[] = [
       <>
         <ul style={listStyle}>
           <li>
-            Developed solutions using Node.js to address operational challenges. Adapted quickly to the company’s
-            production workflows, methodologies, and database structures to deliver effective tools.
+            Developed solutions to address operational challenges. Adapted quickly to the production workflows and
+            database structures to deliver effective tools.
           </li>
           <li>
-            Focused on enhancing development practices, such as adopting modern frameworks and tools, while continuously
-            advancing personal technical skills contribute to long-term team and company success.
+            Focused on enhancing development practices, adopting modern frameworks, while advancing technical skills
+            contribute to long-term team success.
           </li>
           <li>
-            Stack: JavaScript, Node.js, Express.js, TypeScript, React, PostgreSQL, Docker, Power Automate, AWS, Git, Azure Devops
+            Stacks: Node.js, Express.js, TypeScript, React, Bun, RESTful API, Python, Git, PostgreSQL, Oracle, Docker,
+            Linux, CI/CD Pipeline (Azure DevOps), Power Automate
           </li>
         </ul>
       </>
@@ -215,7 +216,7 @@ export const experience: TimelineItem[] = [
             maintainability, and robustness.
           </li>
           <li>
-            Stack: JavaScript, Node.js, Python, Docker, Linux, PowerShell, Vagrant, Electron, MySQL, RESTful API, React
+            Stacks: JavaScript, Node.js, Python, Docker, Linux, PowerShell, Electron, MySQL, RESTful API, React
             Native
           </li>
         </ul>
@@ -237,7 +238,7 @@ export const experience: TimelineItem[] = [
             Developed and expanded the graphical user interface (GUI) used in the production line, contributing to its
             functionality and scalability.
           </li>
-          <li>Stack: JavaScript, Linux, MySQL</li>
+          <li>Stacks: JavaScript, Linux, MySQL</li>
         </ul>
       </>
     ),
@@ -264,8 +265,8 @@ export const contact: ContactSection = {
     },
     {
       type: ContactType.Github,
-      text: 'shchin98',
-      href: 'https://github.com/shchin98',
+      text: 'shchin45',
+      href: 'https://github.com/shchin45',
     },
   ],
 };
@@ -274,7 +275,7 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/shchin98'},
+  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/shchin45'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/shchin/'},
 ];
 
@@ -290,5 +291,5 @@ export const strings: StringItem[] = [
  * API items
  */
 export const Api: ApiItem = {
-  value: 'https://api.github.com/users/shchin98/repos',
+  value: 'https://api.github.com/users/shchin45/repos',
 };

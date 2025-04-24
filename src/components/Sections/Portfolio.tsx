@@ -1,5 +1,6 @@
 import moment from 'moment';
 import {FC, memo, useEffect, useRef, useState} from 'react';
+import {_} from 'ts-pattern/dist/patterns';
 import Typed from 'typed.js';
 
 import {Api, SectionId} from '../../data/data';
@@ -26,12 +27,13 @@ const Portfolio: FC = memo(() => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setRepos(data);
+    
+        const forkedRepos = data.filter((repo: any) => repo.fork === false);
+        setRepos(forkedRepos);
       } catch (err: unknown) {
         console.error(err);
       }
     };
-
     fetchData();
 
     return () => {
@@ -42,7 +44,7 @@ const Portfolio: FC = memo(() => {
   return (
     <Section className="bg-neutral-800" sectionId={SectionId.Portfolio}>
       <div className="flex flex-col gap-y-4">
-        <h2 className="mb-4 self-center text-2xl font-bold text-white">Explore My Portfolio</h2>
+        <h2 className="mb-4 self-center text-2xl font-bold text-white">Explore My Star Project</h2>
         {repos.length === 0 ? (
           <p className="gap-y-4 self-center text-white">
             Work in Progress <span ref={el}></span>

@@ -21,8 +21,8 @@
     "autoprefixer": "10.4.14",
     "classnames": "2.3.2",
     "moment": "2.29.4",
-    "next": "13.4.1",
-    "nodemailer": "6.9.3",
+    "next": "^15.3.1",
+    "nodemailer": "^6.10.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-tsparticles": "2.10.1",
@@ -32,7 +32,7 @@
     "tsparticles-engine": "2.10.1",
     "tsparticles-slim": "2.10.1",
     "typed.js": "2.0.16",
-    "yarn": "1.22.19"
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "13.4.1",
@@ -60,7 +60,7 @@
     "eslint-plugin-simple-import-sort": "10.0.0",
     "eslint-plugin-sort-keys-fix": "1.1.2",
     "gh-pages": "5.0.0",
-    "postcss": "8.4.23",
+    "postcss": "^8.5.3",
     "postcss-preset-env": "8.3.2",
     "prettier": "2.8.8",
     "prettier-plugin-tailwindcss": "0.2.8",
